@@ -6,9 +6,9 @@
   "scripts": {
     "build": "vue-tsc --build && vite build",
     "dev": "vite",
-    "lint": "eslint . --fix",
+    "lint": "eslint .",
     "preview": "vite preview",
-    "test:unit": "vitest",
+    "test": "vitest run",
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
