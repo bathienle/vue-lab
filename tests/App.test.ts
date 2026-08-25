@@ -2,11 +2,19 @@ import { describe, it, expect } from 'vitest'
 
 import { mount } from '@vue/test-utils'
 import App from '@/App.vue'
+import { router } from '@/router'
 
 describe('App', () => {
-  it('should render the heading', () => {
-    const wrapper = mount(App)
+  it('should render the heading', async () => {
+    router.push('/')
+    await router.isReady()
 
-    expect(wrapper.text()).toContain('You did it!')
+    const wrapper = mount(App, {
+      global: {
+        plugins: [router],
+      },
+    })
+
+    expect(wrapper.text()).toContain('Dashboard')
   })
 })
